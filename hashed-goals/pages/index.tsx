@@ -7,7 +7,7 @@ import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Box from '@mui/joy/Box';
 import IconButton from '@mui/joy/IconButton';
-import Textarea from '@mui/joy/Textarea';
+import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button'; // Import Button
 import CryptoJS from 'crypto-js';
@@ -15,7 +15,6 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'; // Import the ico
 import Grid from '@mui/joy/Grid'; // Import Grid component
 
 const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
   const [inputText, setInputText] = useState('');
   const [hashedText, setHashedText] = useState('');
@@ -83,9 +82,11 @@ export default function Home() {
             <Typography level="body-md" display="block" sx={{ mb: 2, maxWidth: '500px' }}>
               Make sure to save your secret goal to publish later!
             </Typography>
-            <Textarea
+            <Input
+
               placeholder="I ran my first 5k!"
               value={inputText}
+              autoFocus
               onChange={handleInputChange}
               sx={{ width: '100%', maxWidth: '500px', borderRadius: '8px', p: 2, mb: 2 }}
             />
