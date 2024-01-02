@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   const shareToTwitter = () => {
-    const message = `Just made a promise to myself using https://hashedgoals.vercel.app/, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
+    const message = `${hashedText}. This MD5 hash represents a commitment to my secret goal. I'll share what it was when I nail it. Stay tuned! Create your own secret goal with hashedgoals.vercel.app #HashedGoals`;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
     window.open(twitterUrl, '_blank');
   };
@@ -46,7 +46,7 @@ export default function Home() {
   };
 
   const copyToClipboard = () => {
-    const message = `Just made a promise to myself using https://hashedgoals.vercel.app/, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
+    const message = `${hashedText}. This MD5 hash represents a commitment to my secret goal. I'll share what it was when I nail it. Stay tuned! Create your own secret goal with hashedgoals.vercel.app #HashedGoals`;
     navigator.clipboard.writeText(message).then(() => {
       // You can provide user feedback here, e.g., show a toast message
     });
@@ -73,38 +73,30 @@ export default function Home() {
               Commit to your goals without revealing them!
             </Typography>
             <Typography level="body-sm" display="block" sx={{ mb: 2, maxWidth: '500px' }}>
-              A hash is a unique fingerprint for your secret goal. It is almost basically to guess the secret goal from the hash.
-              But, once you reveal your goal, anyonce can verify that its hash matches what you published.
-              This proves your commitment to the goal without revealing it.
+
+              A hash is a unique fingerprint for your secret goal. It is basically impossible to guess the secret from the hash.
+              Commit to your goal by publishing its hash and reveal the goal when you achieve it.
+
+              When you reveal the goal, anyone can verify your commitment by comparing the hash you published to the hash
+              of the goal you revealed.
             </Typography>
             <Typography level="body-md" display="block" sx={{ mb: 2, maxWidth: '500px' }}>
               Make sure to save your secret goal to publish later!
             </Typography>
             <Textarea
-              placeholder="e.g. I ran my first half-marathon."
+              placeholder="I ran my first 5k!"
               value={inputText}
               onChange={handleInputChange}
               sx={{ width: '100%', maxWidth: '500px', borderRadius: '8px', p: 2, mb: 2 }}
             />
             {inputText && (
-              <Box sx={{ display: 'flex', alignItems: 'center', maxWidth: '500px', mb: 2 }}>
-                <Typography textAlign="left" sx={{ flexGrow: 1, fontFamily: 'monospace' }}>
-                  Hashed goal: {hashedText}
-                </Typography>
-                <IconButton
-                  variant="outlined"
-                  size="sm"
-                  onClick={copyToClipboard}
-                  sx={{ display: { sm: 'none' } }}
-                >
-                  <ContentCopyIcon />
-                </IconButton>
-
-              </Box>
+              <Typography textAlign="left" sx={{ alignSelf: 'flex-start', ml: 'auto', mr: 'auto', maxWidth: '500px' }}>
+                MD5 hash: {hashedText}
+              </Typography>
             )}
             {!inputText && (
               <Typography textAlign="left" sx={{ alignSelf: 'flex-start', ml: 'auto', mr: 'auto', maxWidth: '500px' }}>
-                Enter a goal to see its commitment hash.
+                Enter a secret goal to see its commitment hash.
               </Typography>
             )}
             <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '500px' }}>
@@ -118,12 +110,12 @@ export default function Home() {
                 </Grid>
                 <Grid xs={4}>
                   <Button sx={buttonStyle} onClick={copyToClipboard}>
-                    Copy commitment
+                    Copy to clipboard
                   </Button>
                 </Grid>
                 <Grid xs={4}>
                   <Button sx={buttonStyle} onClick={downloadPlainText}>
-                    Save Secret Goal
+                    Download Secret Goal
                   </Button>
                 </Grid>
               </Grid>
