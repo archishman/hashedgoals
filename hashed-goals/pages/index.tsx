@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   const shareToTwitter = () => {
-    const message = `Just made a promise to myself, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
+    const message = `Just made a promise to myself using https://hashedgoals.vercel.app/, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
     window.open(twitterUrl, '_blank');
   };
@@ -46,7 +46,7 @@ export default function Home() {
   };
 
   const copyToClipboard = () => {
-    const message = `Just made a promise to myself, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
+    const message = `Just made a promise to myself using https://hashedgoals.vercel.app/, and this MD5 hash: ${hashedText} is my secret goal! I'll share what it was when I nail it. Stay tuned! #HashedGoals`;
     navigator.clipboard.writeText(message).then(() => {
       // You can provide user feedback here, e.g., show a toast message
     });
