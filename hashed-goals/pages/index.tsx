@@ -13,6 +13,7 @@ import Button from '@mui/joy/Button'; // Import Button
 import CryptoJS from 'crypto-js';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'; // Import the icon
 import Grid from '@mui/joy/Grid'; // Import Grid component
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
@@ -123,6 +124,7 @@ export default function Home() {
             </Box>
           </Box>
         </Layout.Main>
+        <Analytics />
       </Layout.Root>
 
     </>
